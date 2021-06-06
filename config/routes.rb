@@ -12,6 +12,8 @@ Rails.application.routes.draw do
     end
     # フォロー&アンフォローのためのルーティング
     resource :relationships, only: [:create, :destroy]
+    #本の投稿数検索のルーティング
+    get "book_count_search", to: "users#book_count_search"
   end
 
   resources :books do

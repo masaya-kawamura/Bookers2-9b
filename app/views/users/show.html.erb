@@ -97,6 +97,22 @@
           });
         });
       </script>
+      <br>
+      <div>
+      <!--日毎の本の投稿数を検索するためのフォーム-->
+      <%= form_with url: user_book_count_search_path(@user), method: :get do |f| %>
+      <%= f.date_field :created_at %>
+      <%= f.submit '検索', class:"btn btn-primary" %>
+      <% end %>        
+      </div>
+      
+      <div id="search_result">
+        <!--変数の中身がnilではなかったら表示する。-->
+        <% if @search_book.present? %>
+          <%= render 'users/book_count_search', search_book: @search_book %>
+        <% end %>
+      </div>
+      
     </div>
   </div>
 </div>
